@@ -17,8 +17,9 @@
     --grad:linear-gradient(135deg,var(--teal),var(--green));
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;font-weight:300;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  /* ponytail: overflow-x clip (not hidden) — hidden makes body a scroll container and kills the sticky spin stage */
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{font-family:'Inter',sans-serif;font-weight:300;background:var(--bg);color:var(--ink);overflow-x:clip;max-width:100%;-webkit-font-smoothing:antialiased}
   h1,h2,h3,h4{font-family:'Fredoka',sans-serif;font-weight:400;letter-spacing:-0.005em;color:var(--ink)}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -64,7 +65,7 @@
     nav{gap:7px}
     nav .btn{padding:12px 15px;font-size:12.5px}
   }
-  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 70px;
+  .hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 70px;
     background:radial-gradient(1100px 560px at 50% -10%,rgba(26,166,74,.09),transparent 60%),radial-gradient(900px 500px at 85% 8%,rgba(15,92,102,.09),transparent 55%)}
   .hero .eyebrow{margin-bottom:20px}
   .hero h1{font-size:clamp(40px,6.4vw,80px);line-height:1.02;max-width:980px;font-weight:500;letter-spacing:-0.018em}
@@ -76,7 +77,7 @@
 
   /* ---------- 3D SPIN ---------- */
   .spin-section{height:330vh;position:relative}
-  .spin-stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  .spin-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
     overflow:hidden;touch-action:pan-y;
     background:radial-gradient(120% 90% at 50% 12%,#faf7f2 0%,#efeae1 55%,#e7e1d6 100%)}
   .spin-head{position:absolute;top:8%;left:50%;transform:translateX(-50%);text-align:center;z-index:4;pointer-events:none;width:90%}
@@ -316,6 +317,59 @@
   .socials a:hover::before{opacity:1}
   .socials svg{width:17px;height:17px;flex-shrink:0}
   ::selection{background:rgba(26,166,74,.22)}
+
+  /* ---------- MOBILE ---------- */
+  @media(max-width:640px){
+    .wrap{padding:0 18px}
+    .hero{padding:118px 20px 56px}
+    .hero p.sub{margin-top:16px}
+    .hero .cta-row{margin-top:26px;width:100%;flex-direction:column;align-items:stretch}
+    .hero .cta-row .btn{width:100%}
+    .scroll-hint{margin-top:38px}
+
+    .spin-head{top:5%}
+    .spin-head p{font-size:11.5px}
+    .spin-ui{padding:30px 20px 5vh;gap:13px}
+    .zbtn{width:44px;height:44px}
+
+    .craft{padding:70px 20px}
+    .craft .wrap{gap:34px}
+    .craft-grid{grid-template-columns:1fr}
+    .colors{padding:70px 20px 64px}
+    .section-head{margin-bottom:34px}
+    .swatch-grid{gap:14px 10px;margin-bottom:32px}
+    .swatch{width:60px}
+    .swatch .dot{width:46px;height:46px}
+    .product-panel{border-radius:20px;padding:18px;gap:22px}
+    .shot{padding:16px;border-radius:14px}
+
+    .sizes{padding:24px 20px 70px}
+    .size-card{border-radius:20px;padding:20px;gap:26px}
+    .size-figure{padding:24px 16px}
+    .size-tab{padding:12px 16px}
+
+    .order{padding:70px 20px 84px}
+    .order-card{border-radius:20px;padding:24px 20px}
+    .form-grid{grid-template-columns:1fr;gap:0}
+    /* 16px keeps iOS Safari from zooming the page on focus */
+    .field input,.field select{font-size:16px;padding:14px}
+    .qty-control button{width:48px;height:48px}
+    .color-picker .sw,.size-picker .sz{min-height:46px}
+    .color-picker .sw{width:46px;height:46px}
+    .pay-grid{gap:18px}
+    .copy-upi{padding:8px 14px;margin-left:0;margin-top:8px;display:inline-block}
+    .pay-upi{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+
+    .overlay{padding:16px}
+    .confirm-card{padding:32px 22px;border-radius:20px}
+    .stitch-wrap{width:84px;height:84px;margin-bottom:18px}
+    .confirm-actions{flex-direction:column}
+
+    .playlist{padding:70px 20px}
+    .playlist-embed{height:320px}
+    footer{padding:44px 20px 32px}
+    .socials a{padding:12px 16px;font-size:12.5px}
+  }
 </style>
 </head>
 <body>
