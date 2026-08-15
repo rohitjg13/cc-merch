@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CC Sweatshirt · Cultural Committee, SNU</title>
+<meta name="description" content="This year's Cultural Committee sweatshirt. Five colours, heavyweight fleece, and your name and batch stitched on the back.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&family=Inter:wght@200;300;400;500;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#33363b; --muted:#6c7076; --faint:#9aa0a6;
+    --teal:#0f5c66; --green:#1aa64a;
+    --bg:#fbfaf8; --surface:#f3f1ec; --line:#e6e2d9; --white:#fff;
+    --navy:#071429;
+    --grad:linear-gradient(135deg,var(--teal),var(--green));
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;font-weight:300;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Fredoka',sans-serif;font-weight:400;letter-spacing:-0.005em;color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  [hidden]{display:none !important}   /* author display rules otherwise beat the UA [hidden] rule */
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Inter';font-weight:500;font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal)}
+  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 30px;border-radius:100px;
+    font-family:'Inter';font-weight:500;font-size:14.5px;cursor:pointer;border:none;
+    transition:transform .25s,box-shadow .25s,border-color .25s,color .25s}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 30px -12px rgba(15,92,102,.5)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(15,92,102,.6)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+
+  header{position:fixed;inset:0 0 auto 0;z-index:100;padding:18px 0;transition:background .35s,box-shadow .35s,padding .35s}
+  header.scrolled{background:rgba(251,250,248,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:11px 0}
+  header.scrolled .brand img{height:38px}
+  header .wrap{display:flex;align-items:center;justify-content:space-between}
+  .brand img{height:46px;width:auto;transition:height .35s}
+  nav{display:flex;align-items:center;gap:10px}
+  nav .btn{padding:13px 22px;font-size:13px}
+
+  /* music toggle */
+  .sound-toggle{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(251,250,248,.7);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+    transition:border-color .25s,background .25s,transform .25s}
+  .sound-toggle:hover{border-color:var(--teal);transform:translateY(-1px)}
+  .sound-toggle[hidden]{display:none}
+  .eq{display:flex;align-items:center;gap:2.5px;height:15px}
+  .eq i{width:2.5px;height:4px;border-radius:2px;background:var(--muted);transition:background .25s}
+  .sound-toggle.playing .eq i{background:var(--green);animation:eqb .95s ease-in-out infinite}
+  .sound-toggle.playing .eq i:nth-child(2){animation-delay:.18s}
+  .sound-toggle.playing .eq i:nth-child(3){animation-delay:.36s}
+  .sound-toggle.playing .eq i:nth-child(4){animation-delay:.54s}
+  @keyframes eqb{0%,100%{height:4px}50%{height:15px}}
+  @media(prefers-reduced-motion:reduce){.sound-toggle.playing .eq i{animation:none;height:9px}}
+
+  @media(max-width:400px){
+    .wrap{padding:0 18px}
+    .brand img{height:34px}
+    header.scrolled .brand img{height:30px}
+    nav{gap:7px}
+    nav .btn{padding:12px 15px;font-size:12.5px}
+  }
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 70px;
+    background:radial-gradient(1100px 560px at 50% -10%,rgba(26,166,74,.09),transparent 60%),radial-gradient(900px 500px at 85% 8%,rgba(15,92,102,.09),transparent 55%)}
+  .hero .eyebrow{margin-bottom:20px}
+  .hero h1{font-size:clamp(40px,6.4vw,80px);line-height:1.02;max-width:980px;font-weight:500;letter-spacing:-0.018em}
+  .hero p.sub{margin-top:22px;font-size:clamp(14.5px,1.8vw,17px);color:var(--muted);max-width:530px;line-height:1.65}
+  .hero .cta-row{margin-top:34px;display:flex;gap:13px;flex-wrap:wrap;justify-content:center}
+  .scroll-hint{margin-top:58px;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--faint);font-size:11px;letter-spacing:.18em;text-transform:uppercase;animation:bob 2.2s ease-in-out infinite}
+  .scroll-hint svg{width:15px;height:15px}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+  /* ---------- 3D SPIN ---------- */
+  .spin-section{height:330vh;position:relative}
+  .spin-stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    overflow:hidden;touch-action:pan-y;
+    background:radial-gradient(120% 90% at 50% 12%,#faf7f2 0%,#efeae1 55%,#e7e1d6 100%)}
+  .spin-head{position:absolute;top:8%;left:50%;transform:translateX(-50%);text-align:center;z-index:4;pointer-events:none;width:90%}
+  .spin-head h2{font-size:clamp(22px,3.2vw,34px);color:var(--ink);font-weight:300}
+  .spin-head p{margin-top:8px;color:var(--muted);font-size:12.5px}
+
+  .viewport{width:min(84vw,480px);aspect-ratio:1/1.03;display:flex;align-items:center;justify-content:center;
+    perspective:1500px;cursor:grab;user-select:none;-webkit-user-select:none;position:relative}
+  .viewport.grabbing{cursor:grabbing}
+  .zoomer{width:100%;height:100%;display:flex;align-items:center;justify-content:center;will-change:transform}
+  .rotor{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
+  .rotor .plate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .rotor .plate>*{width:100%;filter:brightness(var(--b,1))}
+  .rotor .face{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  @media(max-height:760px){.viewport{width:min(72vw,380px)}}
+  .floor{position:absolute;bottom:9%;left:50%;width:56%;height:26px;border-radius:50%;
+    background:radial-gradient(ellipse at center,rgba(60,50,40,.28),transparent 70%);filter:blur(9px);z-index:0}
+
+  /* slider */
+  .spin-ui{position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:16px;
+    width:min(94vw,520px);padding:34px 22px 6.5vh;
+    background:linear-gradient(to top,#e7e1d6 45%,rgba(231,225,214,.85) 72%,rgba(231,225,214,0))}
+  .slider-row{display:flex;align-items:center;gap:14px;width:100%}
+  .slider-row span{font-size:10.5px;color:var(--muted);letter-spacing:.14em;flex-shrink:0}
+  .track{position:relative;flex:1;height:34px;display:flex;align-items:center;cursor:pointer;touch-action:none}
+  .track::before{content:'';position:absolute;left:0;right:0;height:2px;background:rgba(51,54,59,.16);border-radius:2px}
+  .track-fill{position:absolute;left:0;height:2px;background:var(--grad);border-radius:2px;width:0}
+  .knob{position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;left:0;transform:translateX(-50%);
+    border:1px solid var(--line);box-shadow:0 2px 8px rgba(40,35,30,.28);pointer-events:none}
+  .zoom-row{display:flex;align-items:center;gap:10px}
+  .zbtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.75);
+    color:var(--muted);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Inter';transition:all .2s}
+  .zbtn:hover{background:#fff;color:var(--teal);border-color:var(--teal)}
+  .zlabel{font-size:10.5px;color:var(--muted);letter-spacing:.12em;min-width:38px;text-align:center}
+
+  /* ---------- GARMENT COMPOSITION ---------- */
+  .garment{position:relative;container-type:inline-size;width:100%}
+  .garment>img.body{width:100%;display:block}
+  .garment .gname,.garment .gmajor{position:absolute;left:4%;right:4%;text-align:center;line-height:1;
+    font-family:'Archivo Black';text-transform:uppercase;color:var(--ink-col,#fff);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .garment .gname{top:var(--nameTop,60%);font-weight:400;font-size:var(--nameSize,6.4cqw);letter-spacing:-0.01em}
+  .garment .gmajor{top:var(--majorTop,67%);font-weight:400;font-size:var(--majorSize,3cqw);letter-spacing:.02em}
+
+  .craft{padding:100px 24px;background:var(--ink);color:#fff}
+  .craft .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .craft h2{color:#fff;font-size:clamp(24px,3.3vw,34px);line-height:1.25;font-weight:300}
+  .craft p.lead{color:#c3c6ca;margin-top:16px;line-height:1.75;font-size:15px;max-width:440px}
+  .craft-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .craft-card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:15px;padding:20px 18px}
+  .craft-card .num{font-family:'Fredoka';font-size:12px;color:#7fdca0;letter-spacing:.1em;margin-bottom:9px;display:block}
+  .craft-card h4{color:#fff;font-size:15.5px;margin-bottom:5px;font-weight:400}
+  .craft-card p{color:#a2a6ab;font-size:13px;line-height:1.55}
+  @media(max-width:820px){.craft .wrap{grid-template-columns:1fr}}
+
+  .colors{padding:110px 24px 100px}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .section-head h2{font-size:clamp(26px,3.7vw,40px);font-weight:400}
+  .sizes .section-head h2{text-wrap:balance}
+  .section-head p{color:var(--muted);margin-top:13px;font-size:15px;line-height:1.65}
+  .swatch-grid{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:46px}
+  .swatch{background:none;border:none;font-family:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:9px;width:74px}
+  .swatch .dot{width:52px;height:52px;border-radius:50%;border:2px solid transparent;outline:1px solid rgba(0,0,0,.08);outline-offset:-1px;transition:border-color .25s,transform .25s}
+  .swatch.active .dot{border-color:var(--teal);transform:scale(1.09)}
+  .swatch span{font-size:11.5px;color:var(--muted)}
+  .swatch.active span{color:var(--ink);font-weight:500}
+  .product-panel{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;background:var(--surface);border-radius:26px;padding:44px}
+  .shot{background:var(--white);border-radius:18px;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;padding:26px}
+  .shot img,.shot .garment{max-height:100%;width:auto;transition:opacity .3s}
+  .shot .garment{width:100%}
+  .cap{text-align:center;font-size:11.5px;color:var(--faint);margin-top:12px;letter-spacing:.04em}
+  @media(max-width:900px){.product-panel{grid-template-columns:1fr;padding:24px;gap:28px}}
+
+  /* ---------- SIZE ---------- */
+  .sizes{padding:40px 24px 110px}
+  .size-card{max-width:1000px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:26px;padding:44px;display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+  .size-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 26px}
+  .size-tab{border:1px solid var(--line);background:var(--bg);border-radius:100px;padding:12px 19px;min-width:48px;font-family:'Inter';font-weight:500;font-size:13.5px;cursor:pointer;color:var(--muted);transition:all .25s}
+  .size-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .measure-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px dashed var(--line)}
+  .measure-row .k{font-size:13px;color:var(--muted)}
+  .measure-row .v{font-family:'Fredoka';font-size:20px}
+  .measure-row .v em{font-style:normal;font-size:12px;color:var(--faint);margin-left:3px}
+  .size-note{font-size:11.5px;color:var(--faint);margin-top:18px;line-height:1.6}
+  .size-figure{background:var(--surface);border-radius:20px;padding:34px 26px;display:flex;align-items:center;justify-content:center}
+  .fig-wrap{position:relative;width:100%;max-width:330px}
+  .fig-scale{position:relative;transform-origin:center;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+  .fig-scale>img{width:80%;display:block}
+  .dim{position:absolute;background:var(--teal)}
+  .dim-h{height:1px;top:53%;left:17.6%;width:44.8%}
+  .dim-h::before,.dim-h::after{content:'';position:absolute;top:-5px;width:1px;height:11px;background:var(--teal)}
+  .dim-h::before{left:0}.dim-h::after{right:0}
+  .dim-v{width:1px;left:88%;top:2%;height:91%}
+  .dim-v::before,.dim-v::after{content:'';position:absolute;left:-5px;width:11px;height:1px;background:var(--teal)}
+  .dim-v::before{top:0}.dim-v::after{bottom:0}
+  .dim-lbl{position:absolute;font-family:'Inter';font-size:11px;font-weight:500;color:var(--teal);
+    background:rgba(243,241,236,.9);padding:1px 6px;border-radius:20px}
+  .lbl-h{top:calc(53% - 11px);left:40%;transform:translate(-50%,-50%)}
+  .lbl-v{top:47%;left:88%;transform:translate(7px,-50%)}
+  @media(max-width:880px){.size-card{grid-template-columns:1fr;padding:26px;gap:30px}}
+
+  .order{padding:110px 24px 130px;background:var(--surface)}
+  .order-card{max-width:720px;margin:0 auto;background:var(--white);border-radius:26px;padding:52px;box-shadow:0 30px 70px -34px rgba(20,30,30,.16);border:1px solid var(--line)}
+  .order-card .section-head{margin-bottom:36px;text-align:left;max-width:none}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:11.5px;font-weight:500;letter-spacing:.09em;color:var(--muted);text-transform:uppercase}
+  .field .hint{font-size:11.5px;color:var(--faint);font-weight:300;text-transform:none;letter-spacing:0}
+  .field input,.field select{padding:13px 15px;border-radius:11px;border:1px solid var(--line);background:var(--bg);font-family:'Inter';font-weight:300;font-size:14.5px;color:var(--ink);outline:none;transition:border-color .2s,background .2s}
+  .field input:focus,.field select:focus{border-color:var(--teal);background:#fff}
+  .divider{margin:30px 0 22px;padding-top:24px;border-top:1px dashed var(--line)}
+  .color-picker{display:flex;gap:13px;flex-wrap:wrap}
+  .color-picker label{cursor:pointer;position:relative;display:block}
+  .color-picker input{position:absolute;opacity:0;pointer-events:none}
+  .color-picker .sw{width:42px;height:42px;border-radius:50%;display:block;border:2px solid transparent;outline:1px solid rgba(0,0,0,.08);outline-offset:-1px;transition:border-color .2s,transform .2s}
+  .color-picker input:checked+.sw{border-color:var(--teal);transform:scale(1.1)}
+  .size-picker{display:flex;gap:9px;flex-wrap:wrap}
+  .size-picker label{cursor:pointer;position:relative}
+  .size-picker input{position:absolute;opacity:0;pointer-events:none}
+  .size-picker .sz{display:block;min-width:52px;text-align:center;padding:11px 8px;border-radius:11px;border:1px solid var(--line);background:var(--bg);font-size:13.5px;font-weight:500;transition:all .2s}
+  .size-picker input:checked+.sz{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .qty-control{display:flex;align-items:center;border:1px solid var(--line);border-radius:11px;overflow:hidden;width:fit-content}
+  .qty-control button{width:40px;height:44px;border:none;background:var(--bg);font-size:17px;cursor:pointer;color:var(--ink)}
+  .qty-control input{width:46px;text-align:center;border:none;background:#fff;font-size:15px;font-weight:500;padding:0;font-family:'Inter'}
+  .order-total{display:flex;align-items:center;justify-content:space-between;padding:20px 0 6px;border-top:1px dashed var(--line);margin-top:6px}
+  .order-total .label{font-size:13.5px;color:var(--muted)}
+  .order-total .amount{font-family:'Fredoka';font-size:25px}
+  .order-card .btn-primary{width:100%;margin-top:22px;padding:17px;font-size:15px}
+
+  /* pay & upload */
+  .pay-block{margin-top:26px;padding-top:24px;border-top:1px dashed var(--line)}
+  .pay-grid{display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:start}
+  .qr-frame{width:170px;height:170px;border-radius:14px;background:var(--bg);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;padding:8px}
+  .qr-frame img{width:100%;height:100%;object-fit:contain}
+  .qr-missing{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;
+    width:100%;height:100%;border:1.5px dashed var(--line);border-radius:10px;color:var(--faint);padding:10px}
+  .qr-missing strong{font-size:12.5px;font-weight:500;color:var(--muted)}
+  .qr-missing span{font-size:10.5px;line-height:1.4}
+  .qr-missing code{font-size:10px;background:var(--surface);padding:1px 4px;border-radius:4px}
+  .qr-cap{font-size:11px;color:var(--faint);text-align:center;margin-top:9px;letter-spacing:.03em}
+  .pay-amt{font-size:14px;color:var(--muted);margin-bottom:4px}
+  .pay-amt b{font-family:'Fredoka';font-weight:400;font-size:22px;color:var(--ink);margin-left:4px}
+  .pay-upi{font-size:12.5px;color:var(--muted);margin-bottom:4px}
+  .pay-upi b{color:var(--ink);font-weight:500}
+  .copy-upi{background:none;border:1px solid var(--line);border-radius:20px;padding:6px 12px;margin-left:8px;
+    font-family:'Inter';font-size:10.5px;color:var(--muted);cursor:pointer;transition:all .2s}
+  .copy-upi:hover{border-color:var(--teal);color:var(--teal)}
+  .pay-payee{font-size:11.5px;color:var(--faint);margin-bottom:14px}
+  .upload-note{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+  .qr-fallback-id{font-size:11.5px;color:var(--ink);font-weight:500;word-break:break-all;line-height:1.45}
+  .upload-box{display:flex;align-items:center;gap:10px;margin-top:14px;padding:16px 18px;border-radius:12px;
+    border:1.5px dashed var(--line);background:var(--bg);cursor:pointer;color:var(--muted);font-size:13.5px;
+    transition:border-color .2s,color .2s,background .2s}
+  .upload-box:hover{border-color:var(--teal);color:var(--teal);background:#fff}
+  .upload-box.missing{border-color:#c0392b;color:#c0392b;background:#fff6f5}
+  .upload-error{margin-top:9px;font-size:12px;color:#c0392b;line-height:1.5}
+  .upload-box svg{width:18px;height:18px;flex-shrink:0}
+  .upload-preview{display:flex;align-items:center;gap:12px;margin-top:14px;padding:10px 12px;
+    border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+  .upload-preview img{width:46px;height:46px;object-fit:cover;border-radius:8px;flex-shrink:0}
+  .upload-preview>div{min-width:0;display:flex;flex-direction:column;gap:3px}
+  .upload-preview span{font-size:12.5px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .upload-preview button{background:none;border:none;padding:0;font-family:'Inter';font-size:11.5px;
+    color:var(--faint);cursor:pointer;text-align:left;text-decoration:underline}
+  .upload-preview button:hover{color:var(--teal)}
+  @media(max-width:560px){.pay-grid{grid-template-columns:1fr;justify-items:center}
+    .pay-grid>div:last-child{width:100%}}
+  .order-note{margin-top:14px;font-size:11.5px;color:var(--faint);text-align:center;line-height:1.65}
+
+  .overlay{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px;
+    background:rgba(20,24,28,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;transition:opacity .35s}
+  .overlay.show{display:flex}
+  .overlay.visible{opacity:1}
+  .confirm-card{background:var(--white);border-radius:26px;padding:46px 40px;max-width:430px;width:100%;text-align:center;
+    transform:translateY(28px) scale(.94);opacity:0;transition:transform .55s cubic-bezier(.16,1,.3,1),opacity .45s}
+  .overlay.visible .confirm-card{transform:none;opacity:1}
+  .stitch-wrap{width:104px;height:104px;margin:0 auto 24px;position:relative}
+  .stitch-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .stitch-ring{fill:none;stroke:var(--line);stroke-width:4}
+  .stitch-run{fill:none;stroke:url(#cg);stroke-width:4;stroke-linecap:round;stroke-dasharray:295;stroke-dashoffset:295;transition:stroke-dashoffset 1.15s cubic-bezier(.4,0,.2,1)}
+  .overlay.stitching .stitch-run{stroke-dashoffset:0}
+  .stitch-check{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .stitch-check svg{width:44px;height:44px;transform:none}
+  .stitch-check path{fill:none;stroke:var(--green);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;transition:stroke-dashoffset .5s ease .95s}
+  .overlay.stitching .stitch-check path{stroke-dashoffset:0}
+  .confirm-card h3{font-size:24px;margin-bottom:9px;font-weight:400;opacity:0;transform:translateY(10px);transition:all .5s ease 1.25s}
+  .confirm-sum{margin:22px 0 4px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px;text-align:left;opacity:0;transform:translateY(10px);transition:all .5s ease 1.45s}
+  .confirm-sum div{display:flex;justify-content:space-between;font-size:12.5px;padding:5px 0;color:var(--muted)}
+  .confirm-sum div b{font-weight:500;color:var(--ink)}
+  .save-fallback{margin-top:12px;font-size:12px;color:#c0392b;line-height:1.5}
+  .confirm-follow{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);
+    opacity:0;transform:translateY(10px);transition:all .5s ease 1.55s}
+  .confirm-follow p{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+  .confirm-follow .row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .confirm-follow a{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:100px;
+    border:1px solid var(--line);font-family:'Inter';font-weight:500;font-size:12px;color:var(--ink);
+    transition:all .22s}
+  .confirm-follow a:hover{border-color:transparent;color:#fff;background:var(--grad)}
+  .confirm-follow svg{width:15px;height:15px;flex-shrink:0}
+  .confirm-actions{display:flex;gap:10px;margin-top:18px;opacity:0;transform:translateY(10px);transition:all .5s ease 1.65s}
+  .confirm-actions .btn{flex:1;padding:13px 18px;font-size:13.5px}
+  .overlay.done h3,.overlay.done .confirm-sum,.overlay.done .confirm-follow,.overlay.done .confirm-actions{opacity:1;transform:none}
+  .thread{position:absolute;width:7px;height:7px;border-radius:2px;pointer-events:none;opacity:0}
+
+
+  /* ---------- playlist freebie ---------- */
+  .playlist{padding:100px 24px;background:var(--surface);border-top:1px solid var(--line)}
+  .playlist-inner{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  .playlist h2{font-size:clamp(26px,3.6vw,38px);font-weight:400;margin-top:10px}
+  .playlist p{color:var(--muted);font-size:15px;line-height:1.7;margin-top:14px;max-width:420px}
+  .playlist .btn{margin-top:24px}
+  /* the embed header carries the playlist owner's name, so crop it off and keep
+     the track list; our own heading and Spotify button sit right above it */
+  .playlist-embed{position:relative;border-radius:16px;overflow:hidden;height:352px;
+    box-shadow:0 18px 44px -24px rgba(20,30,30,.35);background:#2a3540}
+  .playlist-embed iframe{display:block;border:0;width:100%;height:548px;position:absolute;top:-196px;left:0}
+  @media(max-width:820px){.playlist-inner{grid-template-columns:1fr;gap:30px}.playlist p{max-width:none}}
+
+  footer{padding:56px 24px 40px;text-align:center}
+  footer img{height:42px;margin:0 auto 18px}
+  footer p{color:var(--faint);font-size:12.5px}
+  footer .foot-links{margin-top:16px;display:flex;gap:20px;justify-content:center}
+  footer .foot-links a{font-size:12.5px;color:var(--muted)}
+  footer .foot-links a:hover{color:var(--teal)}
+  .foot-tag{margin-top:34px;font-family:'Fredoka',sans-serif;font-weight:400;
+    font-size:clamp(18px,2.4vw,24px);color:var(--ink)}
+  .foot-tag span{color:var(--muted);font-size:13px;display:block;margin-top:6px;font-family:'Inter';font-weight:300}
+  .socials{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px;max-width:660px;margin-inline:auto}
+  .socials a{position:relative;display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border-radius:100px;
+    border:1px solid var(--line);background:var(--white);font-family:'Inter';font-weight:500;
+    font-size:13px;color:var(--ink);overflow:hidden;
+    transition:color .25s,border-color .25s,transform .25s,box-shadow .25s}
+  .socials a::before{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .25s;z-index:0}
+  .socials a svg,.socials a span{position:relative;z-index:1}
+  .socials a:hover{color:#fff;border-color:transparent;transform:translateY(-3px);box-shadow:0 12px 24px -12px rgba(15,92,102,.55)}
+  .socials a:hover::before{opacity:1}
+  .socials svg{width:17px;height:17px;flex-shrink:0}
+  ::selection{background:rgba(26,166,74,.22)}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.webp" alt="Cultural Committee"></a>
+    <nav>
+      <button class="sound-toggle" id="soundToggle" hidden aria-label="Turn music on or off" title="Music">
+        <span class="eq"><i></i><i></i><i></i><i></i></span>
+      </button>
+      <a href="#order" class="btn btn-primary">Order now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="eyebrow">Shiv Nadar University · Cultural Committee</div>
+  <h1>However your SNU story looks.<br><span class="grad">Might as well dress like it.</span></h1>
+  <p class="sub">Made for every SNU batch, with your name and major stitched in. Five colours to make it yours.</p>
+  <div class="cta-row">
+    <a href="#order" class="btn btn-primary">Shop the drop · ₹1149</a>
+    <a href="#colors" class="btn btn-ghost">Explore colours</a>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<section class="spin-section" id="spinSection">
+  <div class="spin-stage" id="spinStage">
+    <div class="spin-head">
+      <h2>Give it a spin.</h2>
+      <p>There's more to see.</p>
+    </div>
+
+    <div class="viewport" id="viewport">
+      <div class="floor" id="floor"></div>
+      <div class="zoomer" id="zoomer">
+        <div class="rotor" id="rotor">
+          <div class="plate face" id="faceFront"><img id="spinFront" src="assets/front-navy.webp" alt="Sweatshirt front"></div>
+          <div class="plate face" id="faceBack">
+            <div class="garment" id="spinBackGarment">
+              <img class="body" id="spinBackBody" src="assets/back-navy.webp" alt="Sweatshirt back">
+              <div class="gname" id="spinName">YOUR NAME</div>
+              <div class="gmajor" id="spinMajor">BMS'28</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spin-ui">
+      <div class="slider-row">
+        <span>FRONT</span>
+        <div class="track" id="track">
+          <div class="track-fill" id="trackFill"></div>
+          <div class="knob" id="knob"></div>
+        </div>
+        <span>BACK</span>
+      </div>
+      <div class="zoom-row">
+        <button class="zbtn" id="zoomOut" aria-label="Zoom out">−</button>
+        <span class="zlabel" id="zoomLabel">1.0×</span>
+        <button class="zbtn" id="zoomIn" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="colors" id="colors">
+  <div class="section-head">
+    <h2>Five colours. Pick your vibe.</h2>
+  </div>
+
+  <div class="swatch-grid" id="swatchGrid">
+    <button class="swatch active" data-color="navy"><span class="dot" style="background:#141d2e"></span><span>Navy</span></button>
+    <button class="swatch" data-color="maroon"><span class="dot" style="background:#5d1220"></span><span>Maroon</span></button>
+    <button class="swatch" data-color="brown"><span class="dot" style="background:#3a2418"></span><span>Brown</span></button>
+    <button class="swatch" data-color="pink"><span class="dot" style="background:#f3aebe"></span><span>Pink</span></button>
+    <button class="swatch" data-color="grey"><span class="dot" style="background:#c2c3c7"></span><span>Grey</span></button>
+  </div>
+
+  <div class="wrap">
+    <div class="product-panel">
+      <div>
+        <div class="shot"><img id="shotFront" src="assets/front-navy.webp" alt="Front"></div>
+        <p class="cap">The front</p>
+      </div>
+      <div>
+        <div class="shot">
+          <div class="garment" id="panelGarment">
+            <img class="body" id="panelBody" src="assets/back-navy.webp" alt="Back">
+            <div class="gname" id="panelName">YOUR NAME</div>
+            <div class="gmajor" id="panelMajor">BMS'28</div>
+          </div>
+        </div>
+        <p class="cap">The back</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="craft">
+  <div class="wrap">
+    <div>
+      <h2>The little things make it ours.</h2>
+      <p class="lead">From the SNU crest stitched in thread to your name and batch on the back, it's all in the details.</p>
+    </div>
+    <div class="craft-grid">
+      <div class="craft-card"><span class="num">01</span><h4>Embroidered crest</h4><p>Stitched and raised, and still sitting there after the tenth wash.</p></div>
+      <div class="craft-card"><span class="num">02</span><h4>400+ GSM fleece</h4><p>Heavy, thick, genuinely nice to touch. Library AC, January mornings, 8 a.m. classes. You know the drill.</p></div>
+      <div class="craft-card"><span class="num">03</span><h4>Oversized fit</h4><p>Drop shoulders, room to layer, comfy enough that you'll basically live in it.</p></div>
+      <div class="craft-card"><span class="num">04</span><h4>Survives SNU laundry</h4><p>The real stress test. Comes out the other side still looking like day one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sizes">
+  <div class="section-head">
+    <div class="eyebrow">Sizing</div>
+    <h2>Oversized and made for everyone to wear.</h2>
+  </div>
+  <div class="size-card">
+    <div>
+      <h3 style="font-size:20px;font-weight:400">Find your fit.</h3>
+      <div class="size-tabs" id="sizeTabs">
+        <button class="size-tab" data-size="S">S</button>
+        <button class="size-tab active" data-size="M">M</button>
+        <button class="size-tab" data-size="L">L</button>
+        <button class="size-tab" data-size="XL">XL</button>
+        <button class="size-tab" data-size="XXL">XXL</button>
+      </div>
+      <div>
+        <div class="measure-row"><span class="k">Chest (flat)</span><span class="v" id="mChest">22<em>in</em></span></div>
+        <div class="measure-row"><span class="k">Length</span><span class="v" id="mLength">27<em>in</em></span></div>
+        <div class="measure-row"><span class="k">Sleeve</span><span class="v" id="mSleeve">23.5<em>in</em></span></div>
+      </div>
+      <p class="size-note">These numbers are close but not final; the vendor's chart takes over once production starts. Stuck between two sizes, take the smaller one. It already runs roomy.</p>
+    </div>
+    <div class="size-figure">
+      <div class="fig-wrap">
+        <div class="fig-scale" id="figScale">
+          <img src="assets/front-navy.webp" alt="Sweatshirt">
+          <div class="dim dim-h"></div>
+          <div class="dim dim-v"></div>
+          <span class="dim-lbl lbl-h" id="figChest">22"</span>
+          <span class="dim-lbl lbl-v" id="figLen">27"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="order-card">
+    <div class="section-head">
+      <div class="eyebrow">Fill in the form</div>
+      <h2>Just a few details and you're set.</h2>
+    </div>
+
+    <form id="orderForm">
+      <div class="form-grid">
+        <div class="field"><label for="fullName">Name</label><input id="fullName" required placeholder="Shivaank Garg"></div>
+        <div class="field"><label for="snuId">SNU ID</label><input id="snuId" required placeholder="sg707"></div>
+        <div class="field"><label for="rollNumber">Roll number</label><input id="rollNumber" required placeholder="241....."></div>
+        <div class="field"><label for="phone">Phone <span class="hint">(WhatsApp works best)</span></label>
+          <input id="phone" type="tel" required inputmode="tel" autocomplete="tel"
+                 placeholder="98765 43210" pattern="[0-9+][0-9 \-]{8,15}"
+                 title="Enter your mobile number, 10 digits or with country code"></div>
+        <div class="field"><label for="yearOfStudy">Year</label>
+          <select id="yearOfStudy" required>
+            <option value="" disabled selected>Select year</option>
+            <option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="divider">
+        <div class="eyebrow" style="margin-bottom:16px">On the back</div>
+        <div class="form-grid">
+          <div class="field"><label for="embName">Name <span class="hint">(exactly how you want it stitched)</span></label><input id="embName" required placeholder="Shivaank Garg"></div>
+          <div class="field"><label for="embMajor">Major &amp; year <span class="hint">(e.g. BMS'28)</span></label><input id="embMajor" required placeholder="BMS'28"></div>
+        </div>
+
+        <div class="field full"><label>Colour</label>
+          <div class="color-picker" id="colorPicker">
+            <label><input type="radio" name="color" value="Navy" checked><span class="sw" style="background:#141d2e"></span></label>
+            <label><input type="radio" name="color" value="Maroon"><span class="sw" style="background:#5d1220"></span></label>
+            <label><input type="radio" name="color" value="Brown"><span class="sw" style="background:#3a2418"></span></label>
+            <label><input type="radio" name="color" value="Pink"><span class="sw" style="background:#f3aebe"></span></label>
+            <label><input type="radio" name="color" value="Grey"><span class="sw" style="background:#c2c3c7"></span></label>
+          </div>
+        </div>
+
+        <div class="field full"><label>Size <span class="hint">(chart's just above)</span></label>
+          <div class="size-picker" id="sizePicker">
+            <label><input type="radio" name="size" value="S"><span class="sz">S</span></label>
+            <label><input type="radio" name="size" value="M" checked><span class="sz">M</span></label>
+            <label><input type="radio" name="size" value="L"><span class="sz">L</span></label>
+            <label><input type="radio" name="size" value="XL"><span class="sz">XL</span></label>
+            <label><input type="radio" name="size" value="XXL"><span class="sz">XXL</span></label>
+          </div>
+        </div>
+
+        <div class="field full"><label>Quantity</label>
+          <div class="qty-control"><button type="button" id="qtyMinus">−</button><input id="qtyValue" value="1" readonly aria-label="Quantity"><button type="button" id="qtyPlus">+</button></div>
+        </div>
+      </div>
+
+      <div class="order-total"><span class="label">Total</span><span class="amount" id="orderTotal">₹1,149</span></div>
+
+      <div class="pay-block">
+        <div class="eyebrow" style="margin-bottom:16px">Paying for it</div>
+        <div class="pay-grid">
+          <div>
+            <div class="qr-frame">
+              <img id="qrImg" src="assets/payment-qr.png" alt="Scan to pay" hidden>
+              <div class="qr-missing" id="qrMissing">
+                <strong>Pay by UPI ID</strong>
+                <span class="qr-fallback-id" id="qrFallbackId"></span>
+              </div>
+            </div>
+            <p class="qr-cap" id="qrCap">Scan with any UPI app</p>
+          </div>
+          <div>
+            <p class="pay-amt">Pay <b id="payAmount">₹1,149</b></p>
+            <p class="pay-upi" id="payUpi" hidden>UPI ID: <b></b>
+              <button type="button" class="copy-upi" id="copyUpi">Copy</button>
+            </p>
+            <p class="pay-payee" id="payPayee" hidden></p>
+            <p class="upload-note">After you confirm, you'll be taken to a short form to attach your payment screenshot — that's the last step.</p>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Confirm order</button>
+      <p class="order-note">You'll be redirected to attach your payment screenshot next.</p>
+    </form>
+  </div>
+</section>
+
+<div class="overlay" id="overlay">
+  <div class="confirm-card">
+    <div class="stitch-wrap">
+      <svg viewBox="0 0 104 104">
+        <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f5c66"/><stop offset="1" stop-color="#1aa64a"/></linearGradient></defs>
+        <circle class="stitch-ring" cx="52" cy="52" r="47"/>
+        <circle class="stitch-run" cx="52" cy="52" r="47" pathLength="295"/>
+      </svg>
+      <div class="stitch-check"><svg viewBox="0 0 44 44"><path d="M11 23 l8 8 l15 -17"/></svg></div>
+    </div>
+    <h3>Order placed.</h3>
+    <div class="confirm-sum" id="confirmSum"></div>
+    <p class="save-fallback" id="saveFallback" hidden>Couldn't reach our order sheet, so we've opened an email instead. Please hit send.</p>
+    <div class="confirm-follow">
+      <p>Keep up with the drop and everything after it.</p>
+      <div class="row">
+        <a href="https://www.instagram.com/culturalcommittee.snu/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>Instagram</a>
+        <a href="https://whatsapp.com/channel/0029VbCTyniL7UVTdwBgWT2I" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.7-5.1A8.4 8.4 0 1 1 21 11.5Z"/>
+          </svg>WhatsApp</a>
+        <a href="https://linktr.ee/CulturalCommitteeSNU" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 13.5V21"/><path d="M12 13.5 6.4 8.2"/><path d="m12 13.5 5.6-5.3"/><path d="M12 13.5V3.4"/>
+          </svg>Linktree</a>
+      </div>
+    </div>
+    <div class="confirm-actions">
+      <button class="btn btn-primary" id="closeOverlay">Got it</button>
+    </div>
+  </div>
+</div>
+
+<section class="playlist" id="playlist">
+  <div class="wrap playlist-inner">
+    <div>
+      <div class="eyebrow">On us</div>
+      <h2>We brought the vibes too.</h2>
+      <p>Bollywood, Hollywood, throwbacks and songs you'll definitely be singing along to. Probably.</p>
+      <a class="btn btn-ghost" href="https://open.spotify.com/playlist/7IioSkA3q8z07wU7KRb7qK"
+         target="_blank" rel="noopener">Play it on Spotify</a>
+    </div>
+    <div class="playlist-embed">
+      <iframe title="Cultural Committee playlist" loading="lazy"
+        src="https://open.spotify.com/embed/playlist/7IioSkA3q8z07wU7KRb7qK?utm_source=generator"
+        allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+  </div>
+</section>
+
+<audio id="bgm" loop preload="none"></audio>
+
+<footer>
+  <a href="#top"><img src="assets/logo.webp" alt="Cultural Committee"></a>
+  <p>Cultural Committee, Shiv Nadar University. We run the fests and cultural events, and coordinate the clubs and societies.</p>
+  <div class="foot-links"><a href="#colors">Colours</a><a href="#order">Order</a></div>
+
+  <p class="foot-tag">Come find us.<span>Fests, events and everything the clubs are up to, first.</span></p>
+  <div class="socials">
+    <a href="https://www.instagram.com/culturalcommittee.snu/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+      </svg><span>Instagram</span></a>
+    <a href="https://whatsapp.com/channel/0029VbCTyniL7UVTdwBgWT2I" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.7-5.1A8.4 8.4 0 1 1 21 11.5Z"/>
+        <path d="M8.9 9.1c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.5l.7 1.6c.1.3 0 .5-.1.7l-.4.4c-.1.2-.2.3 0 .6a6 6 0 0 0 2.6 2.2c.3.1.5 0 .6-.1l.5-.6c.2-.2.4-.2.6-.1l1.5.8c.3.2.4.3.4.5a1.9 1.9 0 0 1-1.9 1.7 7 7 0 0 1-5-3.1c-.9-1.2-1.5-2.4-1.5-3.4a2.4 2.4 0 0 1 .2-1.2Z"/>
+      </svg><span>WhatsApp channel</span></a>
+    <a href="https://linktr.ee/CulturalCommitteeSNU" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 13.5V21"/><path d="M12 13.5 6.4 8.2"/><path d="m12 13.5 5.6-5.3"/><path d="M12 13.5V3.4"/>
+      </svg><span>Linktree</span></a>
+    <a href="mailto:cultural.committee@snu.edu.in" id="emailLink" data-mail="cultural.committee@snu.edu.in">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 6.7 8.4 6 8.4-6"/>
+      </svg><span>Email us</span></a>
+  </div>
+</footer>
+
+<script>
+const clamp=(v,a,b)=>Math.min(Math.max(v,a),b);
+const header=document.getElementById('siteHeader');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+/* ---------------- 3D spin ---------------- */
+const DEPTH=0;
+const rotor=document.getElementById('rotor'), zoomer=document.getElementById('zoomer'),
+      viewport=document.getElementById('viewport'), floor=document.getElementById('floor'),
+      faceFront=document.getElementById('faceFront'), faceBack=document.getElementById('faceBack'),
+      track=document.getElementById('track'), trackFill=document.getElementById('trackFill'),
+      knob=document.getElementById('knob'), zoomLabel=document.getElementById('zoomLabel'),
+      spinSection=document.getElementById('spinSection');
+
+faceBack.style.transform='rotateY(180deg)';
+
+let t=0, shownT=0, zoom=1, shownZoom=1, dragging=false;
+
+function frame(){
+  shownT += (t-shownT)*0.11;
+  shownZoom += (zoom-shownZoom)*0.12;
+  let ang=shownT*180;
+  const DEAD=15;                        // degrees skipped either side of dead-on edge
+  if(Math.abs(ang-90)<DEAD) ang = 90 + (shownT<0.5 ? -DEAD : DEAD);
+  const rad=ang*Math.PI/180;
+  rotor.style.transform=`rotateX(-5deg) rotateY(${ang}deg)`;
+  zoomer.style.transform=`scale(${shownZoom})`;
+  const b=(1-0.42*Math.abs(Math.sin(rad))).toFixed(3);
+  faceFront.style.setProperty('--b',b);
+  faceBack.style.setProperty('--b',b);
+  const c=Math.abs(Math.cos(rad));
+  floor.style.transform=`translateX(-50%) scaleX(${(0.35+0.65*c).toFixed(3)})`;
+  floor.style.opacity=(0.45+0.35*c).toFixed(3);
+  trackFill.style.width=(shownT*100)+'%';
+  knob.style.left=(shownT*100)+'%';
+  requestAnimationFrame(frame);
+}
+frame();
+
+addEventListener('scroll',()=>{
+  if(dragging) return;
+  const r=spinSection.getBoundingClientRect(), total=spinSection.offsetHeight-innerHeight;
+  t=clamp(-r.top/total,0,1);
+},{passive:true});
+
+/* slider drag */
+function setFromTrack(clientX){
+  const r=track.getBoundingClientRect();
+  t=clamp((clientX-r.left)/r.width,0,1);
+}
+track.addEventListener('pointerdown',e=>{
+  dragging=true; track.setPointerCapture(e.pointerId); setFromTrack(e.clientX);
+});
+track.addEventListener('pointermove',e=>{ if(dragging) setFromTrack(e.clientX); });
+track.addEventListener('pointerup',()=>dragging=false);
+track.addEventListener('pointercancel',()=>dragging=false);
+
+/* drag the garment itself */
+let px=0, pointers=new Map(), pinchStart=0, zoomStart=1;
+viewport.addEventListener('pointerdown',e=>{
+  pointers.set(e.pointerId,e);
+  if(pointers.size===1){ dragging=true; px=e.clientX; viewport.classList.add('grabbing'); viewport.setPointerCapture(e.pointerId); }
+  if(pointers.size===2){ pinchStart=pinchDist(); zoomStart=zoom; }
+});
+viewport.addEventListener('pointermove',e=>{
+  if(!pointers.has(e.pointerId)) return;
+  pointers.set(e.pointerId,e);
+  if(pointers.size===2 && pinchStart>0){
+    const ratio=pinchDist()/pinchStart;
+    zoom=clamp(zoomStart*(1+(ratio-1)*0.55),1,2.4);   // damped pinch
+    updZoom(); return;
+  }
+  if(dragging){ t=clamp(t+(e.clientX-px)/420,0,1); px=e.clientX; }
+});
+function endPointer(e){
+  pointers.delete(e.pointerId);
+  if(pointers.size<2) pinchStart=0;
+  if(pointers.size===0){ dragging=false; viewport.classList.remove('grabbing'); }
+}
+viewport.addEventListener('pointerup',endPointer);
+viewport.addEventListener('pointercancel',endPointer);
+function pinchDist(){
+  const p=[...pointers.values()];
+  return Math.hypot(p[0].clientX-p[1].clientX, p[0].clientY-p[1].clientY);
+}
+
+/* zoom controls: buttons, trackpad pinch (ctrl+wheel), double click. Plain scroll stays page scroll. */
+function updZoom(){ zoomLabel.textContent=zoom.toFixed(1)+'×'; }
+document.getElementById('zoomIn').onclick=()=>{ zoom=clamp(zoom+0.3,1,2.4); updZoom(); };
+document.getElementById('zoomOut').onclick=()=>{ zoom=clamp(zoom-0.3,1,2.4); updZoom(); };
+viewport.addEventListener('dblclick',()=>{ zoom=zoom>1.2?1:1.8; updZoom(); });
+viewport.addEventListener('wheel',e=>{
+  if(!e.ctrlKey) return;
+  e.preventDefault();
+  zoom=clamp(zoom-e.deltaY*0.006,1,2.4); updZoom();   // damped
+},{passive:false});
+
+/* ---------------- colourways ---------------- */
+const COLORS={
+  navy:  {name:'Navy',   ink:'#c8d6e8', nameTop:'60.60%', nameSize:'6.66cqw', majorTop:'67.80%', majorSize:'3.10cqw'},
+  maroon:{name:'Maroon', ink:'#ece2d8', nameTop:'59.82%', nameSize:'6.56cqw', majorTop:'66.84%', majorSize:'3.05cqw'},
+  brown: {name:'Brown',  ink:'#e3dbd2', nameTop:'60.30%', nameSize:'6.55cqw', majorTop:'67.81%', majorSize:'3.05cqw'},
+  pink:  {name:'Pink',   ink:'#432b23', nameTop:'62.33%', nameSize:'6.66cqw', majorTop:'70.75%', majorSize:'3.10cqw'},
+  grey:  {name:'Grey',   ink:'#0f214e', nameTop:'62.14%', nameSize:'7.34cqw', majorTop:'69.40%', majorSize:'3.52cqw'}
+};
+const shotFront=document.getElementById('shotFront'),
+      panelBody=document.getElementById('panelBody'),
+      panelGarment=document.getElementById('panelGarment'),
+      spinFront=document.getElementById('spinFront'), spinBackBody=document.getElementById('spinBackBody'),
+      spinBackGarment=document.getElementById('spinBackGarment'),
+      swatches=document.querySelectorAll('#swatchGrid .swatch'),
+      colorRadios=document.querySelectorAll('#colorPicker input');
+
+function selectColor(key){
+  const c=COLORS[key]; if(!c) return;
+  [shotFront,panelBody,spinFront,spinBackBody].forEach(el=>el.style.opacity=0);
+  setTimeout(()=>{
+    shotFront.src=`assets/front-${key}.webp`;
+    spinFront.src=`assets/front-${key}.webp`;
+    panelBody.src=spinBackBody.src=`assets/back-${key}.webp`;
+    [shotFront,panelBody,spinFront,spinBackBody].forEach(el=>el.style.opacity=1);
+  },130);
+  [panelGarment,spinBackGarment].forEach(el=>{
+    el.style.setProperty('--ink-col',c.ink);
+    el.style.setProperty('--nameTop',c.nameTop);
+    el.style.setProperty('--nameSize',c.nameSize);
+    el.style.setProperty('--majorTop',c.majorTop);
+    el.style.setProperty('--majorSize',c.majorSize);
+  });
+  swatches.forEach(s=>s.classList.toggle('active',s.dataset.color===key));
+  colorRadios.forEach(r=>r.checked=(r.value===c.name));
+  if(paintReady){ paintName(); paintMajor(); }
+}
+let paintReady=false;
+swatches.forEach(s=>s.onclick=()=>selectColor(s.dataset.color));
+colorRadios.forEach(r=>r.onchange=()=>{
+  const hit=Object.entries(COLORS).find(([,v])=>v.name===r.value);
+  if(hit) selectColor(hit[0]);
+});
+selectColor('navy');
+
+/* live name on the back */
+const embName=document.getElementById('embName'), embMajor=document.getElementById('embMajor');
+const names=[document.getElementById('panelName'),document.getElementById('spinName')];
+const majors=[document.getElementById('panelMajor'),document.getElementById('spinMajor')];
+// shrink to fit rather than truncate, so the preview always shows the whole name
+function fitText(el){
+  el.style.fontSize='';
+  let guard=0;
+  while(el.scrollWidth>el.clientWidth && guard<28){
+    el.style.fontSize=(parseFloat(getComputedStyle(el).fontSize)*0.94)+'px';
+    guard++;
+  }
+}
+function paintName(){
+  const v=embName.value.trim()||'YOUR NAME';
+  names.forEach(n=>{n.textContent=v; fitText(n);});
+}
+function paintMajor(){
+  const v=embMajor.value.trim()||"BMS'28";
+  majors.forEach(m=>{m.textContent=v; fitText(m);});
+}
+embName.oninput=paintName;
+embMajor.oninput=paintMajor;
+paintReady=true; paintName(); paintMajor();
+let fitTimer;
+addEventListener('resize',()=>{clearTimeout(fitTimer);fitTimer=setTimeout(()=>{paintName();paintMajor();},150);});
+
+/* ---------------- size chart ---------------- */
+const SIZES={
+  S:{chest:21,length:26,sleeve:22.5,scale:.90},
+  M:{chest:22,length:27,sleeve:23.5,scale:1},
+  L:{chest:23,length:28,sleeve:24.5,scale:1.08},
+  XL:{chest:24,length:29,sleeve:25.5,scale:1.16},
+  XXL:{chest:25,length:30,sleeve:26.5,scale:1.24}
+};
+const tabs=document.querySelectorAll('.size-tab');
+function setSize(sz){
+  const d=SIZES[sz]; if(!d) return;
+  mChest.innerHTML=d.chest+'<em>in</em>'; mLength.innerHTML=d.length+'<em>in</em>'; mSleeve.innerHTML=d.sleeve+'<em>in</em>';
+  figChest.textContent=d.chest+'"'; figLen.textContent=d.length+'"';
+  figScale.style.transform=`scale(${d.scale})`;
+  tabs.forEach(x=>x.classList.toggle('active',x.dataset.size===sz));
+  document.querySelectorAll('#sizePicker input').forEach(r=>r.checked=(r.value===sz));
+}
+tabs.forEach(x=>x.onclick=()=>setSize(x.dataset.size));
+document.querySelectorAll('#sizePicker input').forEach(r=>r.onchange=()=>setSize(r.value));
+
+/* ---------------- order ---------------- */
+const UPI_ID='7206306326m@pnb';                      // read off the QR image you sent
+const PAYEE ='Aadi Jain (Cultural Chairperson)';
+
+const qty=document.getElementById('qtyValue'), totalEl=document.getElementById('orderTotal'), PRICE=1149;
+const payAmount=document.getElementById('payAmount');
+function total(){
+  const t='₹'+((parseInt(qty.value)||1)*PRICE).toLocaleString('en-IN');
+  totalEl.textContent=t; payAmount.textContent=t;
+}
+
+/* QR: show the real file the moment it exists, otherwise keep the placeholder */
+const qrImg=document.getElementById('qrImg'), qrMissing=document.getElementById('qrMissing'),
+      qrCap=document.getElementById('qrCap');
+qrImg.addEventListener('load',()=>{ qrImg.hidden=false; qrMissing.hidden=true; qrCap.textContent='Scan with any UPI app'; });
+qrImg.addEventListener('error',()=>{ qrImg.hidden=true; qrMissing.hidden=false; qrCap.textContent='Pay from any UPI app'; });
+
+if(UPI_ID){
+  const u=document.getElementById('payUpi');
+  u.querySelector('b').textContent=UPI_ID; u.hidden=false;
+  document.getElementById('qrFallbackId').textContent=UPI_ID;
+  const c=document.getElementById('copyUpi');
+  c.addEventListener('click',()=>{
+    navigator.clipboard?.writeText(UPI_ID).then(()=>{
+      c.textContent='Copied'; setTimeout(()=>c.textContent='Copy',1600);
+    }).catch(()=>{});
+  });
+}
+if(PAYEE){ const p=document.getElementById('payPayee'); p.textContent='to '+PAYEE; p.hidden=false; }
+
+document.getElementById('qtyMinus').onclick=()=>{qty.value=Math.max(1,(+qty.value||1)-1);total()};
+document.getElementById('qtyPlus').onclick=()=>{qty.value=Math.min(10,(+qty.value||1)+1);total()};
+
+const COMMITTEE_EMAIL='cultural.committee@snu.edu.in';
+// Google Apps Script web app that writes each order into the Sheet.
+const SHEET_WEBAPP_URL='https://script.google.com/macros/s/AKfycbwDMfWaKcSSiPXYISzevBnIfC7PGde8TghGY-4DYT0ia3Hc6Jg-tyszXbqA16aZKz4B/exec';
+
+// Google Form used for the payment-screenshot step. Fill these in once the
+// form is created (see setup notes) — FORM_ORDER_ID_ENTRY is the entry.NNNN
+// param for the form's "Order ID" question, from its pre-filled link.
+const FORM_BASE_URL='https://docs.google.com/forms/d/e/1FAIpQLSdpqqtNWMSbV2fLcAGwiZWIm7lSS1uHZLRnyHhzqEki5x5aFA/viewform';
+const FORM_ORDER_ID_ENTRY='entry.264345945';
+
+async function saveToSheet(o){
+  // text/plain keeps this a "simple" request, so no CORS preflight to Apps Script
+  const res=await fetch(SHEET_WEBAPP_URL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify(o)
+  });
+  if(!res.ok) throw new Error('HTTP '+res.status);
+  // Apps Script answers 200 with an HTML error page when the script isn't
+  // deployed properly, so only a JSON {ok:true} counts as actually saved
+  const text=await res.text();
+  let parsed;
+  try{ parsed=JSON.parse(text); }
+  catch(_){ throw new Error('Endpoint did not return JSON: '+text.slice(0,120)); }
+  if(!parsed || parsed.ok!==true) throw new Error(parsed && parsed.error ? parsed.error : 'Endpoint reported failure');
+  return parsed;
+}
+const overlay=document.getElementById('overlay');
+let lastMailto='', orderSaved=false;
+
+function threads(){
+  const r=document.querySelector('.confirm-card').getBoundingClientRect();
+  const cols=['#0f5c66','#1aa64a','#7fdca0','#bed7fd'];
+  for(let i=0;i<22;i++){
+    const el=document.createElement('div'); el.className='thread';
+    el.style.background=cols[i%cols.length];
+    el.style.left=(r.left+r.width/2)+'px'; el.style.top=(r.top+70)+'px';
+    document.body.appendChild(el);
+    const a=Math.random()*Math.PI*2, d=90+Math.random()*150;
+    el.animate([{transform:'translate(0,0)',opacity:1},
+      {transform:`translate(${Math.cos(a)*d}px,${Math.sin(a)*d+120}px) rotate(${Math.random()*720-360}deg)`,opacity:0}],
+      {duration:1100+Math.random()*700,easing:'cubic-bezier(.2,.6,.3,1)'}).onfinish=()=>el.remove();
+  }
+}
+
+document.getElementById('orderForm').addEventListener('submit',e=>{
+  e.preventDefault();
+
+  const g=id=>document.getElementById(id).value.trim();
+  const o={name:g('fullName'),snu:g('snuId'),roll:g('rollNumber'),
+    year:document.getElementById('yearOfStudy').value, phone:g('phone'),
+    eName:g('embName'),eMajor:g('embMajor'),
+    color:document.querySelector('#colorPicker input:checked').value,
+    size:document.querySelector('#sizePicker input:checked').value,
+    qty:qty.value,total:totalEl.textContent};
+
+  document.getElementById('confirmSum').innerHTML=`
+    <div><span>Name on back</span><b>${o.eName}</b></div>
+    <div><span>Major</span><b>${o.eMajor}</b></div>
+    <div><span>Colour</span><b>${o.color}</b></div>
+    <div><span>Size</span><b>${o.size}</b></div>
+    <div><span>Quantity</span><b>${o.qty}</b></div>
+    <div><span>Total</span><b>${o.total}</b></div>`;
+
+  const body=`New Cultural Committee sweatshirt order
+
+Name: ${o.name}
+SNU ID: ${o.snu}
+Roll number: ${o.roll}
+Year: ${o.year}
+Phone: ${o.phone}
+
+Name on back: ${o.eName}
+Major & year: ${o.eMajor}
+Colour: ${o.color}
+Size: ${o.size}
+Quantity: ${o.qty}
+Total: ${o.total}
+
+Payment screenshot: please attach it on the form you're redirected to after this email.`;
+  lastMailto=`mailto:${COMMITTEE_EMAIL}?subject=${encodeURIComponent(`Sweatshirt order: ${o.name} (${o.snu})`)}&body=${encodeURIComponent(body)}`;
+
+  const submitBtn=e.target.querySelector('button[type=submit]');
+  submitBtn.disabled=true; submitBtn.textContent='Saving order…';
+
+  saveToSheet(o)
+    .then(res=>{
+      orderSaved=true;
+      if(FORM_BASE_URL && FORM_ORDER_ID_ENTRY && res.orderId){
+        location.href=`${FORM_BASE_URL}?usp=pp_url&${FORM_ORDER_ID_ENTRY}=${encodeURIComponent(res.orderId)}`;
+      } else {
+        // form not wired up yet — show the normal confirmation instead
+        showConfirmOverlay();
+      }
+    })
+    .catch(err=>{
+      // the Sheet didn't take it, so fall back to email rather than lose the order
+      console.warn('Sheet save failed, falling back to email:',err);
+      orderSaved=false;
+      submitBtn.disabled=false; submitBtn.textContent='Confirm order';
+      const note=document.getElementById('saveFallback');
+      if(note) note.hidden=false;
+      showConfirmOverlay();
+      location.href=lastMailto;
+    });
+});
+function showConfirmOverlay(){
+  overlay.classList.add('show');
+  requestAnimationFrame(()=>{
+    overlay.classList.add('visible');
+    setTimeout(()=>overlay.classList.add('stitching'),160);
+    setTimeout(()=>{overlay.classList.add('done');threads();},1250);
+  });
+}
+function closeOverlay(){
+  overlay.classList.remove('visible');
+  setTimeout(()=>overlay.classList.remove('show','stitching','done'),350);
+}
+document.getElementById('closeOverlay').onclick=closeOverlay;
+overlay.onclick=e=>{if(e.target===overlay)closeOverlay()};
+
+/* ---------------- background music ---------------- */
+const TRACK='assets/track.m4a';          // swap in your own file here
+const VOLUME=0.30;                       // background level, not foreground
+
+const bgm=document.getElementById('bgm'), soundBtn=document.getElementById('soundToggle');
+let wantSound=localStorage.getItem('cc-sound')!=='off', started=false, fadeId=null, fadeTimer=null;
+// the file is only fetched once someone actually wants sound
+function ensureSrc(){ if(!bgm.getAttribute('src')) bgm.src=TRACK; }
+
+function fade(to,ms){
+  cancelAnimationFrame(fadeId); clearTimeout(fadeTimer);
+  const from=bgm.volume, t0=performance.now();
+  (function step(){
+    const k=Math.min((performance.now()-t0)/ms,1);
+    bgm.volume=Math.max(0,Math.min(1,from+(to-from)*k));
+    if(k<1) fadeId=requestAnimationFrame(step);
+    else if(to===0) bgm.pause();
+  })();
+  // rAF stalls in a background tab, so guarantee the end state lands either way
+  fadeTimer=setTimeout(()=>{
+    cancelAnimationFrame(fadeId);
+    bgm.volume=Math.max(0,Math.min(1,to));
+    if(to===0) bgm.pause();
+  },ms+120);
+}
+function playMusic(){
+  ensureSrc();
+  bgm.volume=0;
+  bgm.play().then(()=>{ fade(VOLUME,1400); soundBtn.classList.add('playing'); }).catch(()=>{});
+}
+function stopMusic(){ fade(0,450); soundBtn.classList.remove('playing'); }
+
+soundBtn.hidden=false;
+bgm.addEventListener('error',()=>{soundBtn.hidden=true;});
+
+// browsers refuse to autoplay audio, so start on the first real interaction
+const GESTURES=['pointerdown','click','keydown','touchstart'];
+function tryStart(e){
+  if(started) return;
+  if(e&&e.target&&e.target.closest&&e.target.closest('#soundToggle')) return;  // the button speaks for itself
+  started=true; GESTURES.forEach(g=>removeEventListener(g,tryStart));
+  if(wantSound) playMusic();
+}
+GESTURES.forEach(g=>addEventListener(g,tryStart,{passive:true}));
+
+// try to start straight away; most browsers block audio until the visitor
+// interacts, in which case the gesture listeners above pick it up instead
+if(wantSound){
+  bgm.addEventListener('canplay',()=>{
+    if(!started && wantSound && bgm.paused) playMusic();
+  },{once:true});
+  ensureSrc();
+  bgm.load();
+}
+
+soundBtn.addEventListener('click',()=>{
+  started=true; GESTURES.forEach(g=>removeEventListener(g,tryStart));
+  wantSound=bgm.paused;               // follow what you can actually hear, not a stale preference
+  localStorage.setItem('cc-sound',wantSound?'on':'off');
+  wantSound?playMusic():stopMusic();
+});
+
+// don't play to an empty room
+// two songs at once is nobody's idea of a good time
+const plSection=document.getElementById('playlist');
+if('IntersectionObserver' in window){
+  let duckedByPlaylist=false;
+  new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting && !bgm.paused){ duckedByPlaylist=true; stopMusic(); }
+    else if(!e.isIntersecting && duckedByPlaylist && wantSound){ duckedByPlaylist=false; playMusic(); }
+  }),{threshold:0.45}).observe(plSection);
+}
+
+// a bare mailto: does nothing if no mail app is set up, so copy the address as well
+function legacyCopy(text){
+  try{
+    const ta=document.createElement('textarea');
+    ta.value=text; ta.setAttribute('readonly','');
+    ta.style.cssText='position:fixed;top:-1000px;opacity:0';
+    document.body.appendChild(ta); ta.select();
+    const ok=document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  }catch(e){ return false; }
+}
+const emailLink=document.getElementById('emailLink');
+if(emailLink){
+  emailLink.addEventListener('click',()=>{
+    const addr=emailLink.dataset.mail;
+    const label=emailLink.querySelector('span');
+    const flash=()=>{
+      if(!label || label.dataset.busy) return;
+      label.dataset.busy='1';
+      const was=label.textContent;
+      label.textContent='Address copied';
+      setTimeout(()=>{label.textContent=was; delete label.dataset.busy;},2200);
+    };
+    // navigator.clipboard needs a secure context, so fall back to the legacy path
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(addr).then(flash).catch(()=>legacyCopy(addr)&&flash());
+    } else if(legacyCopy(addr)) flash();
+  });
+}
+
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){ bgm.pause(); }
+  else if(wantSound&&soundBtn.classList.contains('playing')){
+    bgm.volume=VOLUME;                 // a fade may have stalled while we were away
+    bgm.play().catch(()=>{});
+  }
+});
+</script>
+</body>
+</html>
