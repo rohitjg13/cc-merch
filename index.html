@@ -534,8 +534,13 @@
     <form id="orderForm">
       <div class="form-grid">
         <div class="field"><label for="fullName">Name</label><input id="fullName" required placeholder="Shivaank Garg"></div>
-        <div class="field"><label for="snuId">SNU ID</label><input id="snuId" required placeholder="sg707"></div>
-        <div class="field"><label for="rollNumber">Roll number</label><input id="rollNumber" required placeholder="241....."></div>
+        <div class="field"><label for="snuId">SNU email</label>
+          <input id="snuId" type="email" required inputmode="email" autocomplete="email" spellcheck="false"
+                 pattern="[^@\s]+@snu\.edu\.in" placeholder="sg707@snu.edu.in"
+                 title="Use your SNU email, e.g. sg707@snu.edu.in"></div>
+        <div class="field"><label for="rollNumber">Roll number</label>
+          <input id="rollNumber" inputmode="numeric" required pattern="[0-9]+"
+                 placeholder="261....." title="Digits only"></div>
         <div class="field"><label for="phone">Phone <span class="hint">(WhatsApp works best)</span></label>
           <input id="phone" type="tel" required inputmode="tel" autocomplete="tel"
                  placeholder="98765 43210" pattern="[0-9+][0-9 \-]{8,15}"
@@ -960,6 +965,12 @@ function threads(){
   }
 }
 
+// pattern= is case-sensitive, so normalise before it gets checked
+// (on input, not blur — Enter submits without blurring, and the check would see the raw case)
+document.getElementById('snuId').addEventListener('input',e=>{
+  const v=e.target.value.toLowerCase(); if(v!==e.target.value) e.target.value=v;
+});
+
 document.getElementById('orderForm').addEventListener('submit',e=>{
   e.preventDefault();
 
@@ -982,7 +993,7 @@ document.getElementById('orderForm').addEventListener('submit',e=>{
   const body=`New Cultural Committee sweatshirt order
 
 Name: ${o.name}
-SNU ID: ${o.snu}
+SNU email: ${o.snu}
 Roll number: ${o.roll}
 Year: ${o.year}
 Phone: ${o.phone}
@@ -1038,7 +1049,7 @@ overlay.onclick=e=>{if(e.target===overlay)closeOverlay()};
 
 /* ---------------- background music ---------------- */
 const TRACK='assets/track.m4a';          // swap in your own file here
-const VOLUME=0.30;                       // background level, not foreground
+const VOLUME=0.15;                       // background level, not foreground
 
 const bgm=document.getElementById('bgm'), soundBtn=document.getElementById('soundToggle');
 let wantSound=localStorage.getItem('cc-sound')!=='off', started=false, fadeId=null, fadeTimer=null;
