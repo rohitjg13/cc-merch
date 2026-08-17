@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&family=Inter:wght@200;300;400;500;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <style>
   :root{
     --ink:#33363b; --muted:#6c7076; --faint:#9aa0a6;
@@ -233,6 +232,16 @@
     font-family:'Inter';font-weight:500;font-size:13.5px;padding:11px 18px;border-radius:100px;margin:2px 0 14px}
   .pay-app-btn svg{width:16px;height:16px;flex-shrink:0}
   .pay-app-btn:active{opacity:.85}
+  .pay-app-btn{border:none;cursor:pointer}
+  .app-picker{margin:-6px 0 14px}
+  .app-picker-cap{font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+  .app-picker-row{display:flex;flex-wrap:wrap;gap:8px}
+  .app-chip{display:inline-flex;align-items:center;padding:9px 14px;border-radius:100px;border:1px solid var(--line);
+    background:var(--white);font-size:12.5px;font-weight:500;color:var(--ink);text-decoration:none;cursor:pointer;transition:all .2s}
+  .app-chip:hover{border-color:var(--teal);color:var(--teal)}
+  .help-note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.55}
+  .help-note a{color:var(--teal);font-weight:500;text-decoration:none}
+  .help-note a:hover{text-decoration:underline}
   .qr-fallback-id{font-size:11.5px;color:var(--ink);font-weight:500;word-break:break-all;line-height:1.45}
   .upload-box{display:flex;align-items:center;gap:10px;margin-top:14px;padding:16px 18px;border-radius:12px;
     border:1.5px dashed var(--line);background:var(--bg);cursor:pointer;color:var(--muted);font-size:13.5px;
@@ -534,6 +543,8 @@
     <div class="section-head">
       <div class="eyebrow">Fill in the form</div>
       <h2>Just a few details and you're set.</h2>
+      <p class="help-note">Any doubts while filling this out or paying? Call or WhatsApp
+        <a href="tel:+918700968753">+91 87009 68753</a> — Shivaank Garg, Cultural Coordinator.</p>
     </div>
 
     <form id="orderForm">
@@ -597,25 +608,34 @@
         <div class="pay-grid">
           <div>
             <div class="qr-frame">
-              <img id="qrImg" src="assets/payment-qr.png" alt="Scan to pay" hidden>
-              <div class="qr-missing" id="qrMissing">
-                <strong>Pay by UPI ID</strong>
-                <span class="qr-fallback-id" id="qrFallbackId"></span>
-              </div>
+              <!-- inlined so it always renders: no network request, nothing to 404 -->
+              <img id="qrImg" alt="Scan to pay Aadi Jain over UPI"
+                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAADIElEQVR4nO1cS4rkMAyVHEMtHagD1FGSm/WZ5gblo8wBBpxlQYIGSXYqVEM6gZ7qeKK3CP68hcBIlp/lIMEeRLeLDmD8dbgv5l9h/HW48/EHzOgHDxC1hQixnbjtocz7Y9q/C+5kfCBKDQmgS9ylEXKXRqA7NNxiMO9+NPud8TfwUZ0zjNy6kLhuXtrE8+zi/YK/Hc74x+EPHujOi9wPF5IuYvuD9myA20Ja4NT8QIQf7LAdPVCH1H9/yJ4NcFtIJ+Z7+ZZD0uQpYunGHpAARll49u532OOM/+35FWR0STbcz58My6/q4/vsnIJhQoptww77QFKHXXj3O+xxxv/286/nNIrPurey//KYJNHCwR4mhGjn32rjM925dQ9E+hHcA2+95fwrkdric218UEEjyxhj2YRF5Eiy9ZYuU2x9a+PDcxnFdctwTq1I5SwVttinj2a/M/4GPhE9skKlYVhCcxjzTizLveRvhzP+IfTntDwpaatTEXpWomV3Ppr9zvircKo6s+tiXwTnokpOnD+LEj0rWQe0fxfcee+PKHty/ugsR+oSrs1/682fw7yC5SOOLbMFlj/Xx/cAw5WwS6xSDV4XEyFMngAmFqEbQoBmRAjpgPY746+D1EPVYWkZlel5HJat1+JzhXwoBRuiYMxKFsybcOBVncdsfSuMzy03JAwzJAyHxEF6LFcL4Y/HLl0PaL8z/jpI3FQqrJ5ZlaRbXTn1ZqXD/LdCPmgt3Swz5yK7NCtZkOUsi89V8r1WbYiMkUs3Rh6ThHkE7CRCq0j5Dnuc8f9VfIZ8/i0nYVL/FRQJxPy3Mj4U7UoWFF4zadBLJDsf/RfvF6AhqX/Gj/nqN7ZFmH6bPbvg9tHhjPwmv1+YLxQg3iRIP/TIlD35t9Xn1MeHlzKNZf0GPa/7GRafK+T7ZWdogeKNSydV7mhUjpZVxu4Xq9NHs98Zfyd/4KcpjE6FaX6TJJWUklgf3/51uDO/XwijypCy7VJsE1DsL4TyMAmGq/lv5e8XoOy6ok8mHpyvg1XCPJr9zvirQPs/wyrc+vQnGH8d7ov5VxgfVvEXHKxBAps75KQAAAAASUVORK5CYII=">
             </div>
-            <p class="qr-cap" id="qrCap">Scan with any UPI app</p>
+            <p class="qr-cap">Scan with any UPI app, then enter ₹<span id="qrCapAmt">1,149</span></p>
           </div>
           <div>
             <p class="pay-amt">Pay <b id="payAmount">₹1,149</b></p>
-            <a href="#" id="payAppBtn" class="pay-app-btn">
+            <button type="button" id="payAppBtn" class="pay-app-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              Pay in UPI app
-            </a>
+              <span id="payAppLabel">Pay in UPI app</span>
+            </button>
+            <div class="app-picker" id="appPicker" hidden>
+              <p class="app-picker-cap">Open with</p>
+              <div class="app-picker-row">
+                <a class="app-chip" data-scheme="tez://upi/pay">Google Pay</a>
+                <a class="app-chip" data-scheme="phonepe://pay">PhonePe</a>
+                <a class="app-chip" data-scheme="paytmmp://pay">Paytm</a>
+                <a class="app-chip" data-scheme="upi://pay">Other UPI app</a>
+              </div>
+            </div>
             <p class="pay-upi" id="payUpi" hidden>UPI ID: <b></b>
               <button type="button" class="copy-upi" id="copyUpi">Copy</button>
             </p>
             <p class="pay-payee" id="payPayee" hidden></p>
             <p class="upload-note">After you confirm, you'll be taken to a short form to attach your payment screenshot — that's the last step.</p>
+            <p class="help-note">Stuck anywhere, or paid but something looks off? Call or WhatsApp
+              <a href="tel:+918700968753">+91 87009 68753</a> — Shivaank Garg, Cultural Coordinator.</p>
           </div>
         </div>
       </div>
@@ -807,11 +827,13 @@ viewport.addEventListener('wheel',e=>{
 
 /* ---------------- colourways ---------------- */
 const COLORS={
-  navy:  {name:'Navy',   ink:'#c8d6e8', nameTop:'60.60%', nameSize:'6.66cqw', majorTop:'67.80%', majorSize:'3.10cqw'},
-  maroon:{name:'Maroon', ink:'#ece2d8', nameTop:'59.82%', nameSize:'6.56cqw', majorTop:'66.84%', majorSize:'3.05cqw'},
-  brown: {name:'Brown',  ink:'#e3dbd2', nameTop:'60.30%', nameSize:'6.55cqw', majorTop:'67.81%', majorSize:'3.05cqw'},
-  pink:  {name:'Pink',   ink:'#432b23', nameTop:'62.33%', nameSize:'6.66cqw', majorTop:'70.75%', majorSize:'3.10cqw'},
-  grey:  {name:'Grey',   ink:'#0f214e', nameTop:'62.14%', nameSize:'7.34cqw', majorTop:'69.40%', majorSize:'3.52cqw'}
+  // measured off each back shot, so the live text lands exactly where that
+  // colour's print sits — the mockups don't all print at the same size
+  navy:  {name:'Navy',   ink:'#8dade0', nameTop:'63.49%', nameSize:'5.86cqw', majorTop:'69.56%', majorSize:'2.93cqw'},
+  maroon:{name:'Maroon', ink:'#eae1cf', nameTop:'62.60%', nameSize:'5.87cqw', majorTop:'68.51%', majorSize:'2.72cqw'},
+  brown: {name:'Brown',  ink:'#e1d9cf', nameTop:'63.15%', nameSize:'6.30cqw', majorTop:'69.35%', majorSize:'3.09cqw'},
+  pink:  {name:'Pink',   ink:'#3c1d13', nameTop:'65.38%', nameSize:'7.22cqw', majorTop:'72.54%', majorSize:'3.36cqw'},
+  grey:  {name:'Grey',   ink:'#101d34', nameTop:'64.82%', nameSize:'7.13cqw', majorTop:'71.69%', majorSize:'3.54cqw'}
 };
 const shotFront=document.getElementById('shotFront'),
       panelBody=document.getElementById('panelBody'),
@@ -901,40 +923,37 @@ const UPI_ID='7206306326m@pnb';                      // read off the QR image yo
 const PAYEE ='Aadi Jain (Cultural Chairperson)';
 
 const qty=document.getElementById('qtyValue'), totalEl=document.getElementById('orderTotal'), PRICE=1149;
-const payAmount=document.getElementById('payAmount'), payAppBtn=document.getElementById('payAppBtn');
-function upiUri(amount){
-  return `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE)}&am=${amount.toFixed(2)}&cu=INR`;
+const payAmount=document.getElementById('payAmount'), payAppBtn=document.getElementById('payAppBtn'),
+      payAppLabel=document.getElementById('payAppLabel'), appPicker=document.getElementById('appPicker'),
+      qrCapAmt=document.getElementById('qrCapAmt');
+
+/* The QR itself carries no amount — it's the plain payee code, so people type
+   the total in themselves like any other UPI QR. The buttons below do carry
+   the amount, since those we can prefill safely. */
+function upiUri(scheme,amount){
+  return `${scheme}?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(PAYEE)}&am=${amount.toFixed(2)}&cu=INR`;
 }
 function total(){
   const amt=(parseInt(qty.value)||1)*PRICE;
   const t='₹'+amt.toLocaleString('en-IN');
   totalEl.textContent=t; payAmount.textContent=t;
-  updateQR(amt);
-  if(UPI_ID){
-    payAppBtn.href=upiUri(amt);
-    payAppBtn.lastChild.textContent=' Pay '+t+' in UPI app';
-  }
-}
-
-/* QR: regenerated for the exact amount whenever quantity changes, so the
-   scanned payment always matches the order total instead of a fixed price */
-const qrImg=document.getElementById('qrImg'), qrMissing=document.getElementById('qrMissing'),
-      qrCap=document.getElementById('qrCap');
-qrImg.addEventListener('load',()=>{ qrImg.hidden=false; qrMissing.hidden=true; qrCap.textContent='Scan with any UPI app'; });
-qrImg.addEventListener('error',()=>{ qrImg.hidden=true; qrMissing.hidden=false; qrCap.textContent='Pay from any UPI app'; });
-
-function updateQR(amount){
-  if(!window.QRCode || !UPI_ID) return;
-  QRCode.toDataURL(upiUri(amount),{margin:1,width:340},(err,url)=>{
-    if(err||!url) return;
-    qrImg.src=url;
+  qrCapAmt.textContent=amt.toLocaleString('en-IN');
+  payAppLabel.textContent='Pay '+t+' in UPI app';
+  // every chip points at one specific app, so nothing gets picked for you
+  appPicker.querySelectorAll('.app-chip').forEach(a=>{
+    a.href=upiUri(a.dataset.scheme,amt);
   });
 }
+
+// tapping the button reveals the choices rather than firing a bare upi:// link,
+// which Android would hand to whatever app is set as default (often WhatsApp)
+payAppBtn.addEventListener('click',()=>{
+  appPicker.hidden=!appPicker.hidden;
+});
 
 if(UPI_ID){
   const u=document.getElementById('payUpi');
   u.querySelector('b').textContent=UPI_ID; u.hidden=false;
-  document.getElementById('qrFallbackId').textContent=UPI_ID;
   const c=document.getElementById('copyUpi');
   c.addEventListener('click',()=>{
     navigator.clipboard?.writeText(UPI_ID).then(()=>{
@@ -943,7 +962,7 @@ if(UPI_ID){
   });
 }
 if(PAYEE){ const p=document.getElementById('payPayee'); p.textContent='to '+PAYEE; p.hidden=false; }
-total(); // generate the QR for the initial quantity on page load
+total(); // set the amount everywhere for the initial quantity
 
 document.getElementById('qtyMinus').onclick=()=>{qty.value=Math.max(1,(+qty.value||1)-1);total()};
 document.getElementById('qtyPlus').onclick=()=>{qty.value=Math.min(10,(+qty.value||1)+1);total()};
